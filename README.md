@@ -1,3 +1,15 @@
+Appcubator-sysadmin
+===================
+
+1. Configures nginx sites
+2. Configures uwsgi upstart scripts
+
+Allows you to do:
+
+  sudo service [ nginx | uwsgi-site | uwsgi-deploy | uwsgi-hosting ] \
+      [ start | stop | restart | reload ]
+
+
 Usage
 =====
 
