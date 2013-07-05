@@ -15,8 +15,11 @@ Usage
 
     sudo APPCUBATOR_MODE=staging python setup_stuff.py
 
-Then do the following:
+Then run the following in /var/www/appcubator-sysadmin:
 
+    mkdir logs
+    mkdir sockets
+    mkdir pidfiles
     sudo chgrp www-data logs
     sudo chgrp www-data sockets
     sudo chgrp www-data pidfiles
