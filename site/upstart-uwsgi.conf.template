@@ -1,0 +1,5 @@
+description "uWSGI for {UWSI_FOR}"
+start on runlevel [2345]
+stop on runlevel [06]
+
+exec uwsgi --master --die-on-term --ini {UWSGI_INI_LOCATION}
