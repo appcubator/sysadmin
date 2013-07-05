@@ -1,0 +1,4 @@
+Usage
+=====
+
+    sudo APPCUBATOR_MODE=staging python setup_stuff.py
