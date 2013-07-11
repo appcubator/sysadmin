@@ -1,0 +1,4 @@
+I generated CSR using openssl, some tutorial i read online
+then generated the key also using some command i think.
+
+Then got the crts in an email, catted them together to appcubator.combined.crt.
