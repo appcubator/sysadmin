@@ -57,13 +57,24 @@ def deploy_upstart(ini_path, desc, command_name):
     with open(j(upstart_dir, '%s.conf' % command_name), "w") as upstart_dest:
         upstart_dest.write(site_upstart)
 
-#site
+# site
+print "Setting up site nginx and uwsgi"
 symlink(j(this_dir, 'site', 'nginx-%s.conf' % staging), j(nginx_dir, 'site-nginx-%s.conf' % staging))
 deploy_upstart(j(this_dir, 'site', 'uwsgi-%s.ini' % staging), 'appcubator-site', 'uwsgi-site')
 
-#deployment
+# deployment
+print "Setting up deployment nginx and uwsgi"
 symlink(j(this_dir, 'deploy', 'nginx-%s.conf' % staging), j(nginx_dir, 'deploy-nginx-%s.conf' % staging))
-deploy_upstart(j(this_dir, 'deploy', 'uwsgi-deploy.ini'), 'appcubator-deploy', 'uwsgi-deploy')
+deploy_upstart(j(this_dir, 'deploy', 'uwsgi-deploy-%s.ini' % staging), 'appcubator-deploy', 'uwsgi-deploy.conf')
+
+# deployment celery
+print "Setting up celeryd init and config files"
+print "  (this sets up celery but you may still have to set up rabbitmq)"
+symlink(j(this_dir, 'deploy', 'celeryd-defaults-%s.conf' % staging), '/etc/default/celeryd')
+symlink(j(this_dir, 'deploy', 'celeryd-init.conf'), '/etc/init.d/celeryd')
+
+# hosting
+print "Setting up hosting uwsgi"
 deploy_upstart(j(this_dir, 'deploy', 'uwsgi-emperor.ini'), 'appcubator hosting', 'uwsgi-hosting')
 
 run_command('initctl reload-configuration')
