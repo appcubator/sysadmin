@@ -65,7 +65,7 @@ deploy_upstart(j(this_dir, 'site', 'uwsgi-%s.ini' % staging), 'appcubator-site',
 # deployment
 print "Setting up deployment nginx and uwsgi"
 symlink(j(this_dir, 'deploy', 'nginx-%s.conf' % staging), j(nginx_dir, 'deploy-nginx-%s.conf' % staging))
-deploy_upstart(j(this_dir, 'deploy', 'uwsgi-deploy-%s.ini' % staging), 'appcubator-deploy', 'uwsgi-deploy.conf')
+deploy_upstart(j(this_dir, 'deploy', 'uwsgi-deploy-%s.ini' % staging), 'appcubator-deploy', 'uwsgi-deploy')
 
 # deployment celery
 print "Setting up celeryd init and config files"
