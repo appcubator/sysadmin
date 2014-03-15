@@ -1,0 +1,9 @@
+[Unit]
+Description=Hipache
+
+[Service]
+ExecStart=/usr/bin/docker run -rm -name hipache-1 -p 80:80 appcbtr-hipache
+ExecStop=/usr/bin/docker kill hipache-1
+
+[X-Fleet]
+X-Conflicts=hipache.*.service
