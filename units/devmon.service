@@ -2,7 +2,7 @@
 Description=Devmon
 
 [Service]
-ExecStart=/usr/bin/docker run -rm -name devmon-%i -p 5000 devmon
-ExecStartPost=/home/core/appcubator-sysadmin/prox.sh %i $(docker port devmon-test 5000 | sed 's/.*:\([:digit:]*\)/\1/') 
-ExecStop=/usr/bin/docker kill appcbtr-registry
+ExecStart=/usr/bin/docker run -rm -name devmon-%i -p 5000 10.204.203.78:5000/devmon
+ExecStartPost=/home/core/appcubator-sysadmin/prox.sh %i $(sleep 3s && /usr/bin/docker port devmon-%i 5000 | sed 's/.*:\([:digit:]*\)/\1/') 
+ExecStop=/usr/bin/docker kill devmon-%i
 
