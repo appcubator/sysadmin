@@ -1,7 +1,0 @@
-[Unit]
-Description=appcubator-registry
-
-[Service]
-ExecStart=/usr/bin/docker run -rm -name appcbtr-registry -p 5000:5000 appcbtr-registry
-ExecStop=/usr/bin/docker kill appcbtr-registry
-

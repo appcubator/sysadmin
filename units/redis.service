@@ -1,9 +1,0 @@
-[Unit]
-Description=Redis
-
-[Service]
-ExecStart=/usr/bin/docker run -rm -name redis -p 6379:6379 dockerfile/redis
-ExecStop=/usr/bin/docker kill redis
-
-[X-Fleet]
-X-ConditionMachineOf=hipache.1.service
