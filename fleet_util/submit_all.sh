@@ -14,7 +14,7 @@ cd $TDIR
 for subdomain in $(cat hostnames.txt)
 do
     cmd=$(echo $1 | sed "s/SUBDOMAIN/$subdomain/g")
-    $cmd
+    bash -c "$cmd"
 done
 # end main stuff
 
