@@ -5,6 +5,7 @@ set -e
 TDIR=`mktemp -d`
 trap "{ cd - ; rm -rf $TDIR; exit 255; }" SIGINT
 cp hostnames.txt $TDIR
+cp devmon.service $TDIR
 cd $TDIR
 
 
