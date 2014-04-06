@@ -16,10 +16,16 @@ while [ 1 ]; do
 echo "docker port output:" 
     echo The counter is $COUNTER
 
+set +e
 PORT_OUT=$(/usr/bin/docker port devmon-$SUBDOMAIN 5000)
-
+set -e
+if [[ "$?" -ne "0" ]]; then
+echo $PORT_OUT
+continue
+fi
 
 echo $PORT_OUT
+
 PORT=$(echo $PORT_OUT | sed 's/.*:\([:digit:]*\)/\1/')
 echo "port result"
 echo $PORT
