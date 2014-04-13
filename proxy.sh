@@ -10,9 +10,9 @@ set -e
 
 REDIS_HOST=10.204.203.78
 DEPID=$1
+SLEEPFLAG=$2
 
-if [ -n "$SLEEPFLAG"]
-then
+if [ "$#" = "2" ]; then
     if [ "$SLEEPFLAG" != "--sleep" ]; then
         echo "What the heck is $SLEEPFLAG ? Did you mean --sleep ?"
         exit 1

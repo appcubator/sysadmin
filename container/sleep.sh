@@ -3,6 +3,7 @@
 # USAGE ./create.sh <deploy_id>
 
 set -e
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 if [ -z $1 ]; then
     echo "Please provide deployment id as the first argument"
@@ -12,4 +13,4 @@ fi
 DEPID=$1
 
 /usr/bin/docker stop devmon-$DEPID
-prox.sh $DEPID --sleep
+$DIR/prox.sh $DEPID --sleep
