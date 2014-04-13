@@ -12,3 +12,4 @@ fi
 DEPID=$1
 
 /usr/bin/docker stop devmon-$DEPID
+prox.sh $DEPID --sleep
