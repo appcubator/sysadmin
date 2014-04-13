@@ -19,6 +19,7 @@ then
         exit 1
     fi
     proxy $DEPID --sleep
+    exit 0
 fi
 
 echo "Polling docker for the port"
